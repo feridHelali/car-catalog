@@ -1,0 +1,11 @@
+POST http://localhost:3030/cars/add 
+Content-Type: application/json
+
+{
+    "brand":"BMW",
+    "label":"X5",
+    "price":75000
+}
+
+###
+GET  http://localhost:3030/cars/all

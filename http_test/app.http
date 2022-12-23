@@ -1,0 +1,11 @@
+GET http://localhost:3030/cars
+
+###
+
+POST http://localhost:3030/cars
+Content-Type: application/json
+
+{
+    "brand":"Mercedes",
+    "price":75000
+}
