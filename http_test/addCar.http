@@ -2,10 +2,23 @@ POST http://localhost:3030/cars/add
 Content-Type: application/json
 
 {
-    "brand":"BMW",
-    "label":"X5",
-    "price":75000
+    "brand":"Mazda",
+    "label":"AZ230",
+    "price":50000
 }
 
 ###
 GET  http://localhost:3030/cars/all
+
+### 
+PUT http://localhost:3030/cars/update/63a1a86df092bde8ff59def3
+Content-Type: application/json
+
+{
+    "brand":"BMW",
+    "label":"BMW X5 new Génération",
+    "price":70000
+}
+
+###
+DELETE http://localhost:3030/cars/delete/63a5770dd0e6171b49d6f3db

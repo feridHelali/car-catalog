@@ -2,6 +2,7 @@ const http = require("http");
 const mongoose = require("mongoose");
 const app = require("./app")
 
+
 mongoose.set("strictQuery", false)
 mongoose.connect("mongodb://localhost:27017/carDb")
     .then(() => {

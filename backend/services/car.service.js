@@ -12,7 +12,20 @@ const getallCars = async ()=>{
     return result;
 }
 
+const updateCar = async (id,newCar)=>{
+    const result = await Car.findByIdAndUpdate(id,newCar);
+    return result;
+
+}
+
+const removeCar = async (id)=>{
+    const result = await Car.deleteOne({_id:id});
+    return result;
+}
+
 module.exports ={
     addCar,
-    getallCars
+    getallCars,
+    updateCar,
+    removeCar
 }
