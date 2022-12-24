@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
+import Swal from "sweetalert2";
+
 
 const CarPage = () => {
     const [carsList, setCarsList] = useState([]);
+    const [carRemoved,setCarRemoved] = useState(false)
+
+
     useEffect(() => {
         const getCars = async () => {
             const data = await fetch('http://localhost:3030/cars/all');
@@ -10,8 +15,33 @@ const CarPage = () => {
             setCarsList(json.message)
         }
         getCars()
-    }, [])
+    }, [carRemoved])
 
+     const  removeCarHandler=async(id)=>{
+        await fetch(`http://localhost:3030/cars/delete/${id}`,{
+            method:"DELETE"
+        })
+        .then(data=>data.json())
+        .then(json=>{
+            Swal.fire({
+                title: 'Delete Car From Catalog',
+                text: 'Car Deleted Successfully',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              });
+              setCarRemoved(prev=>!prev)
+           
+        })
+        .catch(error=>{
+            Swal.fire({
+                title: 'Error',
+                text: 'Something happen Wrong!!!',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
+        })
+
+     }
 
     return (
         <div className="flex flex-col p-3 m-2">
@@ -64,7 +94,9 @@ const CarPage = () => {
                                                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                                     <button className="bg-red-500 px-2 m-1"
                                                     onClick={(e)=>{
-                                                        console.log("remove clicked",car)}}
+                                                       removeCarHandler(car._id)
+                                                    }
+                                                    }
                                                     >X</button>
                                                      <button className="bg-green-500 px-2 m-1"
                                                     onClick={(e)=>{console.log("edit clicked",car)}}
