@@ -7,7 +7,8 @@ import Nav from "./components/wk_01/Navbar"
 import Home from "./pages/Home";
 import ContactPage from "./pages/Contact";
 import AboutPage from "./pages/About";
-import CarPage from "./pages/CarPage"
+import CarPage from "./pages/CarPage";
+import AddCarForm from "./components/wk_01/AddCarForm";
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/car-list" element={<CarPage />} />
+          <Route path="/addCar" element={<AddCarForm />} />
         </Routes>
       </div>
     </Router>

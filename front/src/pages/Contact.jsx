@@ -1,8 +1,8 @@
 
-const ContactPage=()=>{
-    return(
-        <div>
-                <h1>Contact Page</h1>
+const ContactPage = () => {
+    return (
+        <div className="flex flex-col p-2 bg-slate-50 text-gray-600">
+           Contact Page
         </div>
     )
 }

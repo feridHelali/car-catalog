@@ -1,17 +1,51 @@
 import React from 'react'
 import { useState } from 'react'
+import Swal from "sweetalert2";
+import {useNavigate} from "react-router-dom";
 
 function AddCarForm({addCar}) {
-
   const [car,setCar] = useState({
     brand:"",
     label:"",
     price:0
   })
+
+  const navigate = useNavigate()
+
+  const postNewCarHandler=async ()=>{
+    await fetch("http://localhost:3030/cars/add",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(car)
+    })
+    .then(data=>data.json())
+    .then(json=>{
+      if(json.Error){
+        Swal.fire({
+          title: 'Error!',
+          text: json.Error,
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
+      }else{
+        Swal.fire({
+          title: 'Add Car',
+          text: 'Car Added Successfully',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+        navigate('/car-list')
+
+      }
+    })
+    .catch(error=>console.log(error))
+  }
   
 
   return (
-    <div>
+    <div className='container p-2 m-4 flex items-center justify-center'>
       <form>
         <div className="mb-3">
           <label forhtml="brand" className="form-label">Brand</label>
@@ -52,18 +86,11 @@ function AddCarForm({addCar}) {
               }}
               />
         </div>
-       <pre><code>{JSON.stringify(car,undefined,3)}</code></pre>
+       {/* <pre><code>{JSON.stringify(car,undefined,3)}</code></pre> */}
         <button 
           type="button" 
           className="btn btn-primary"
-          onClick={(e)=>{
-            addCar(car);
-            setCar({
-              brand:"",
-              label:"",
-              price:0
-            });
-          }}
+          onClick={()=>postNewCarHandler()}
           required
           >Add Car</button>
       </form>
