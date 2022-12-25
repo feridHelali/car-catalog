@@ -10,6 +10,8 @@ import AboutPage from "./pages/About";
 import CarPage from "./pages/CarPage";
 import AddCarForm from "./components/wk_01/AddCarForm";
 import UpdateCarForm from "./components/wk_01/UpdateCarForm";
+import Login from "./components/user/Login";
+import Register from "./components/user/Register";
 
 
 
@@ -26,6 +28,8 @@ function App() {
           <Route path="/car-list" element={<CarPage />} />
           <Route path="/addCar" element={<AddCarForm />} />
           <Route path="/update-car/:id" element={<UpdateCarForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>

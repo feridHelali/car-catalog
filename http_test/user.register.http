@@ -1,0 +1,40 @@
+POST http://localhost:3030/users/register
+Content-Type: application/json
+
+{
+    "fullName":"Malak",
+    "email":"malak@gmail.com",
+    "password":"toto2022"
+}
+
+###
+POST http://localhost:3030/users/login
+Content-Type: application/json
+
+{
+    "email":"malak@gmail.com",
+    "password":"toto2022"
+}
+
+###
+POST http://localhost:3030/users/login
+Content-Type: application/json
+
+{
+    "email":"salem@gmail.com",
+    "password":"toto2022"
+}
+
+###
+###
+POST http://localhost:3030/users/login
+Content-Type: application/json
+
+{
+    "email":"malak@gmail.com",
+    "password":"toto"
+}
+
+###
+GET http://localhost:3030/users/all
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjNhODNlNzQ3YjVhMzc1NGI1Y2M5ODkzIiwiZW1haWwiOiJtYWxha0BnbWFpbC5jb20iLCJpYXQiOjE2NzE5NzA3OTgsImV4cCI6MTY3MTk3Nzk5OH0.NRn2HmRwjT_0z8WIWir0fOH5EZqSLPfxFgacGSRBcgw

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef, useEffect } from 'react'
-import { useParams,useNavigate, Navigate } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function UpdateCarForm() {
