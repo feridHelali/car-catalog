@@ -45,60 +45,60 @@ const CarPage = () => {
 
     return (
         <div className="flex flex-col p-3 m-2">
-            <h1 className="text-blue-600 text-center">Our Car Catalog</h1>
+            <h1 className="text-center text-blue-600">Our Car Catalog</h1>
           
-            <Link to="/addCar" className="bg-blue-500 hover:bg-blue-700 text-white font-bold cursor-pointer py-2 px-4 rounded">Add New Car</Link>
+            <Link to="/addCar" className="px-4 py-2 font-bold text-white bg-blue-500 rounded cursor-pointer hover:bg-blue-700">Add New Car</Link>
            
             <div className="flex flex-col">
                 <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                    <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                         <div className="overflow-hidden">
                             <table className="min-w-full">
                                 <thead className="bg-white border-b">
                                     <tr>
-                                    <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                    <th scope="col" className="px-6 py-4 text-sm font-medium text-left text-gray-900">
                                             #
                                         </th>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        <th scope="col" className="px-6 py-4 text-sm font-medium text-left text-gray-900">
                                             Brand
                                         </th>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        <th scope="col" className="px-6 py-4 text-sm font-medium text-left text-gray-900">
                                             Label
                                         </th>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        <th scope="col" className="px-6 py-4 text-sm font-medium text-left text-gray-900">
                                             Price
                                         </th>
-                                        <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                                        <th scope="col" className="px-6 py-4 text-sm font-medium text-left text-gray-900">
                                             Actions
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                    
-                                     {!carsList ?
+                                     {carsList?.length===0 ?
                                         (<h1 className="">No Cars Found</h1>)
                                         : (carsList.map(car => (
                                             <tr key={car._id} className="bg-gray-100 border-b">
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                                 {car._id}
                                                 </td>
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                <td className="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                                     {car.brand}
                                                 </td>
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                <td className="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                                 {car.label}
                                                 </td>
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                                <td className="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                                     {car.price.toFixed(3)}
                                                 </td>
-                                                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                    <button className="bg-red-500 px-2 m-1"
+                                                <td className="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
+                                                    <button className="px-2 m-1 bg-red-500"
                                                     onClick={(e)=>{
                                                        removeCarHandler(car._id)
                                                     }
                                                     }
                                                     >X</button>
-                                                     <button className="bg-green-500 px-2 m-1"
+                                                     <button className="px-2 m-1 bg-green-500"
                                                     onClick={(e)=>{console.log("edit clicked",car)}}
                                                     >Edit</button>
                                                     
