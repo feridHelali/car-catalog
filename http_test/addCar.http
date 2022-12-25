@@ -10,6 +10,8 @@ Content-Type: application/json
 ###
 GET  http://localhost:3030/cars/all
 
+###
+GET  http://localhost:3030/cars/one/63a1a86df092bde8ff59def3
 ### 
 PUT http://localhost:3030/cars/update/63a1a86df092bde8ff59def3
 Content-Type: application/json
