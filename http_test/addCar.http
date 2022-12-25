@@ -2,8 +2,8 @@ POST http://localhost:3030/cars/add
 Content-Type: application/json
 
 {
-    "brand":"Mazda",
-    "label":"AZ230",
+    "brand":"Toyota",
+    "label":"TOY568",
     "price":50000
 }
 

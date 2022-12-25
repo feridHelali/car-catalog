@@ -22,6 +22,15 @@ router.get("/all",async (req,res)=>{
     }
 })
 
+router.get("/one/:id",async (req,res)=>{
+    try {
+        const result = await carService.getCarById(req.params.id);
+        res.json({message:result})
+    } catch (error) {
+        res.json({Error:error.message}) 
+    }
+})
+
 router.put("/update/:id",async (req,res)=>{
     const id= req.params.id;
     const newCar = req.body;
