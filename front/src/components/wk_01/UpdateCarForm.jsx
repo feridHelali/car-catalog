@@ -1,8 +1,7 @@
 import React from 'react'
 import { useRef, useEffect } from 'react'
-import { useParams } from "react-router-dom";
-
-//import Swal from "sweetalert2";
+import { useParams,useNavigate, Navigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function UpdateCarForm() {
 
@@ -11,6 +10,7 @@ function UpdateCarForm() {
   const label = useRef();
   const price = useRef();
   const form = useRef();
+  const navigate=useNavigate();
 
 
   useEffect(() => {
@@ -46,7 +46,33 @@ function UpdateCarForm() {
         "Content-type":"application/json"
       },
       body:JSON.stringify(newCar)
-     }).then(console.log)
+     }).then(data=>data.json())
+     .then(json=>{
+     if(json.status="success"){
+           Swal.fire({
+        title: 'Success',
+        text: "Successfully Udated",
+        icon: 'success',
+        confirmButtonText: 'Ok'
+      })
+    }else if(json.status="error"){
+      Swal.fire({
+        title: 'Error',
+        text: "Failed to Update a Car",
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+    }
+      navigate("/car-list")
+     })
+     .catch(error=>{
+      Swal.fire({
+        title: 'Error',
+        text: "Failed to Update a Car",
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+     })
 
   }
 

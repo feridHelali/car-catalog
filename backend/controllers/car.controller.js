@@ -36,9 +36,9 @@ router.put("/update/:id",async (req,res)=>{
     const newCar = req.body;
     try {
         const result = await carService.updateCar(id,newCar);
-        res.json({message:result})
+        res.json({status:"success",message:result})
     } catch (error) {
-        res.json({Error:error.message}) 
+        res.json({status:"error",Error:error.message}) 
     }
 })
 
